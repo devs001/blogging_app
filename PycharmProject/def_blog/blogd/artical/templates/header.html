@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<p>
+<div class="jumbotron">
+    <div class="display-4"> create heading.</div>
+</div>
+<form action="{% url 'heade' %}" method="post" class="form">
+    {% bootstrap_form form %}
+    {% csrf_token %}
+<button type='submit' class="btn btn-primary">create head </button></form>
+        {% endblock content %}
+</p>

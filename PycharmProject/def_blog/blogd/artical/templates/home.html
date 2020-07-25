@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+{% load static %}
+
+<head>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="widht=device-widht",initial-scale=1">
+    <title>blogdef</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<style>
+    body{
+    postion:relative;
+    }
+</style>
+<body data-spy="scroll" data-target="#menu" data-offset="0" >
+
+    <nav class="navbar  navbar-expand-md fixed-top" >
+        <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'heade' %}">heade </a>
+        <button class="navbar-toggler" type="button"
+        data-target="#menu" data-toggle="collapse">
+        <span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="menu">
+                 <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <a href="#show" class="nav-link" >show</a></li>
+                     <li class="nav-item">
+                        <a href="#artical" class="nav-link">
+                             create artical </a></li>
+                     {% if user.is_authenticated %}
+                     <li class="nav-item">
+                         <a href="{% url 'users:logout' %}" class="nav-link"> log out</a></li>
+                     <li class="nav-item">
+                          <a href="#about" class="nav-link"> about </a></li>
+                     <li class="nav-item">
+                          <a href="#about&contact" class="nav-link">about us & contact</a></li>
+                     {% else %}
+                     <li class="nav-item">
+                          <a href="#register" class="nav-link">register</a> </li>
+                     <li class="nav-item">
+                          <a href="#login" class="nav-link"> login </a></li>
+                     <li class="nav-item">
+
+                     {% endif %}
+                  </ul>
+            </div>
+        </div>
+</nav>
+
+<!-- here some iphone need code skiped -->
+    <div id="show">
+    <div class="landing">
+        <div class="home-wrap">
+            <div class="home-inner">
+
+
+
+
+
+
+<!-- this where main caption start -->
+
+<div class="caption center-block text-center">
+    <h2> artical to express yourself </h2>
+    <a class="btn btn-outline-dark" href="{% url 'users:login' %}">
+        login & write</a>
+    <a class="btn btn-outline-dark" href="{% url 'show_articals' %}">
+        show articals </a>
+    <a class="btn btn-outline-dark" href="{% url 'create_artical' %}">
+        create artical </a>
+    <a class="btn btn-outline-dark" href="{% url 'users:register' %}" id="register">
+        register </a>
+</div>
+        </div>
+        </div>
+        </div>
+</div>
+<div class="jumbotron" id="about">
+    <h3 class="heading text-center">
+        you can create a artical
+    </h3>
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <h4>say something about a topic </h4>
+            <p>you can write a aritcal just  about
+            anything you can think of</p>
+        </div>
+        <div class="col-md-6 text-center">
+            <h4>you can read </h4>
+            <p> know what other people are
+            thinking about a topic. expand
+                your knowlege or just fun</p>
+        </div>
+    </div>
+</div>
+<!-- end of about -->
+<!-- start of more info -->
+<div id="more-pic">
+    <div class="container-fluid padding">
+        <h3 class="heading text-center">more-pic
+        </h3>
+
+    <div class="row no-padding">
+        <div class="column-md-6">
+            <img class="more-pic" src="{% static 'static/book.jpg' %}">
+        </div>
+        <div class="column-md-6">
+            <img class="more-pic" src="{% static 'static/cloud.png' %}">
+        </div>
+        </div>
+    </div>
+</div>
+<!-- end of more-pic -->
+<!-- some articals -->
+<div id="articals">
+</br>
+    <h3 class="heading text-center"> some articals </h3>
+    </br>
+    <div class="row padding">
+        <div class="col-md-6">
+            <div class="card text-center">
+
+            <img class="card-img-top"
+                 src="{% static 'static/jet1.jpg' %}">
+            <div class="card-body">
+                <h4> heading</h4>
+                <p> a praragraph </p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center">
+
+            <img class="card-img-top"
+                 src="{% static 'static/jet1.jpg' %}">
+            <div class="card-body">
+                <h4> heading</h4>
+                <p> a praragraph </p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--- about us and contact -->
+<div id="about&contact">
+    <div class="contact-fluid footer">
+        <div class="row">
+            <div class="col-md-3"> </div>
+            <div class="col-md-6 text-center">
+                    <p>
+                        platform to expres views and learn from other
+                        share your storis and get other people's take on subject
+                        </br>
+                    </p>
+                    <strong>contact info</strong>
+                  <p> 9079220723 </br>
+                      devendersidhu001@gmail.com
+                  </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class='container' >
+    <div class="pb-4 mb-4">
+{% block content %}
+{% endblock content %}
+    </div>
+</div>
+</body>
+</html>

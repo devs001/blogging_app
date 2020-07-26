@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% load bootstrap4 %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register_temlates</title>
+</head>
+<body>
+{% block content %}
+<div class="jumbotron">
+    <div class="display-1">
+        register and write
+    </div>
+
+</div>
+<form action="{% url 'users:register' %}"
+      class="form" method="post" >
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-outline-dark">
+        here singup</button>
+    <input type="hidden" name="next" value="{% url 'show_articals' %}">
+</form>
+{% endblock content %}
+</body>
+</html>
